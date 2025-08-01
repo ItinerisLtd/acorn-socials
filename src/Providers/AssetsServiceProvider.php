@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\ExamplePackage\Providers;
+namespace Itineris\AcornSocials\Providers;
 
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;

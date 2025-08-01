@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Example Package
+    | Acorn Socials Configuration
     |--------------------------------------------------------------------------
     |
     | Configuration files provide a great way to customize your package.

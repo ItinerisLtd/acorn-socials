@@ -1,10 +1,15 @@
 <?php
 
-namespace VendorName\ExamplePackage\Facades;
+namespace Itineris\AcornSocials\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Example extends Facade
+/**
+ * @method static string getQuote()
+ *
+ * @see \Itineris\AcornSocials\AcornSocials
+ */
+class AcornSocials extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +18,6 @@ class Example extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Example';
+        return 'AcornSocials';
     }
 }

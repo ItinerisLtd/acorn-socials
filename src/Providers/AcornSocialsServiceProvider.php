@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\ExamplePackage\Providers;
+namespace Itineris\AcornSocials\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use VendorName\ExamplePackage\Console\ExampleCommand;
-use VendorName\ExamplePackage\Example;
+use Itineris\AcornSocials\Console\AcornSocialsCommand;
+use Itineris\AcornSocials\AcornSocials;
 
-class ExampleServiceProvider extends ServiceProvider
+class AcornSocialsServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -15,13 +15,13 @@ class ExampleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Example', function () {
-            return new Example($this->app);
+        $this->app->singleton('AcornSocials', function () {
+            return new AcornSocials($this->app);
         });
 
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/example.php',
-            'example'
+            __DIR__.'/../../config/acorn-socials.php',
+            'acorn-socials'
         );
     }
 
@@ -33,7 +33,7 @@ class ExampleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/example.php' => $this->app->configPath('example.php'),
+            __DIR__.'/../../config/acorn-socials.php' => $this->app->configPath('acorn-socials.php'),
         ], 'config');
 
         $this->publishes([
@@ -42,13 +42,13 @@ class ExampleServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(
             __DIR__.'/../../resources/views',
-            'Example',
+            'AcornSocials',
         );
 
         $this->commands([
-            ExampleCommand::class,
+            AcornSocialsCommand::class,
         ]);
 
-        $this->app->make('Example');
+        $this->app->make('AcornSocials');
     }
 }

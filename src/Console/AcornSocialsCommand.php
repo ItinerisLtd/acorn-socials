@@ -1,18 +1,18 @@
 <?php
 
-namespace VendorName\ExamplePackage\Console;
+namespace Itineris\AcornSocials\Console;
 
 use Roots\Acorn\Console\Commands\Command;
-use VendorName\ExamplePackage\Facades\Example;
+use Itineris\AcornSocials\Facades\AcornSocials;
 
-class ExampleCommand extends Command
+class AcornSocialsCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'example';
+    protected $signature = 'acorn-socials';
 
     /**
      * The console command description.
@@ -29,7 +29,7 @@ class ExampleCommand extends Command
     public function handle()
     {
         $this->info(
-            Example::getQuote()
+            AcornSocials::getQuote()
         );
     }
 }

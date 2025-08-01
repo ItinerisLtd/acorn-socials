@@ -1,1 +1,1 @@
-{{ Example::getQuote() }}
+{{ AcornSocials::getQuote() }}
