@@ -7,7 +7,7 @@ This repo can be used to scaffold an Acorn package. See the [Acorn Package Devel
 You can install this package with Composer:
 
 ```bash
-composer require itinerisltd/acorn-socialse
+composer require itinerisltd/acorn-socials
 ```
 
 You can publish the config file with:
