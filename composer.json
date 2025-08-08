@@ -50,7 +50,7 @@
   "require-dev": {
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
     "laravel/facade-documenter": "dev-main",
-    "roots/acorn": "^4.3",
+    "roots/acorn": "^5.0",
     "roots/wordpress": "^6.7",
     "wpackagist-plugin/kirki": "^5.1"
   },
