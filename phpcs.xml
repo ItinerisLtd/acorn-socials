@@ -23,9 +23,4 @@
     </properties>
   </rule>
 
-  <!-- Exclude the Squiz.Classes.ValidClassName.NotCamelCaps rule for src/SchemaPieces/Enums/ -->
-  <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
-    <exclude-pattern>src/SchemaPieces/Enums/*.php</exclude-pattern>
-  </rule>
-
 </ruleset>
