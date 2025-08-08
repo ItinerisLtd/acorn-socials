@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+use Itineris\AcornSocials\Integrations\Customizer\SocialsSection;
+use Itineris\AcornSocials\Integrations\Customizer\SocialsSectionRepository;
+
 return [
 
     /*
@@ -17,7 +22,13 @@ return [
     |
     */
 
-    'quotes' => [
-        'For every Sage there is an Acorn.',
+    'settings' => [
+        'use_customizer' => true,
     ],
+
+    'social' => [
+        'section' => SocialsSection::class,
+        'repository' => SocialsSectionRepository::class,
+    ],
+
 ];

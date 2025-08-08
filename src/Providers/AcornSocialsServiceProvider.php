@@ -1,54 +1,73 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Itineris\AcornSocials\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Itineris\AcornSocials\Console\AcornSocialsCommand;
 use Itineris\AcornSocials\AcornSocials;
+use Itineris\AcornSocials\Concretes\AbstractSection;
+use Itineris\AcornSocials\Concretes\AbstractSectionRepository;
+use Itineris\AcornSocials\Managers\ConfigManager;
+use Itineris\AcornSocials\Managers\HookManager;
+use Itineris\AcornSocials\Managers\SharableSocials;
+use RuntimeException;
 
 class AcornSocialsServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        $this->app->singleton('AcornSocials', function () {
-            return new AcornSocials($this->app);
-        });
+        $this->registerConfig();
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../../config/acorn-socials.php',
-            'acorn-socials'
+        $sectionClass = ConfigManager::getSocialSection();
+        $repositoryClass = ConfigManager::getSocialSectionRepository();
+
+        if (
+            !is_subclass_of($sectionClass, AbstractSection::class)
+            || !is_subclass_of($repositoryClass, AbstractSectionRepository::class)
+        ) {
+            throw new RuntimeException('Social section or repository class is not defined in the configuration.');
+        }
+
+        $this->app->singleton(
+            'AcornSocials',
+            function () use ($sectionClass, $repositoryClass) {
+                return new AcornSocials(
+                    $this->app,
+                    new HookManager(),
+                    new SharableSocials(),
+                    new $sectionClass(),
+                    new $repositoryClass(),
+                );
+            },
         );
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../../config/acorn-socials.php' => $this->app->configPath('acorn-socials.php'),
-        ], 'config');
-
-        $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/acorn-package'),
-        ], 'public');
-
-        $this->loadViewsFrom(
-            __DIR__.'/../../resources/views',
-            'AcornSocials',
-        );
-
-        $this->commands([
-            AcornSocialsCommand::class,
-        ]);
-
+        $this->bootPublishing();
         $this->app->make('AcornSocials');
+    }
+
+    private function registerConfig(): void
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/acorn-socials.php',
+            'acorn-socials',
+        );
+    }
+
+    private function bootPublishing(): void
+    {
+        if (!$this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->publishes([
+            __DIR__ . '/../../config/acorn-socials.php' => $this->app->configPath('acorn-socials.php'),
+        ], 'config');
     }
 }

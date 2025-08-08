@@ -40,7 +40,6 @@
   "extra": {
     "acorn": {
       "providers": [
-        "Itineris\\AcornSocials\\Providers\\AssetsServiceProvider",
         "Itineris\\AcornSocials\\Providers\\AcornSocialsServiceProvider"
       ],
       "aliases": {
@@ -52,11 +51,13 @@
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
     "laravel/facade-documenter": "dev-main",
     "roots/acorn": "^4.3",
-    "roots/wordpress": "^6.7"
+    "roots/wordpress": "^6.7",
+    "wpackagist-plugin/kirki": "^5.1"
   },
   "prefer-stable": true,
   "config": {
     "allow-plugins": {
+      "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "roots/wordpress-core-installer": true
     },
