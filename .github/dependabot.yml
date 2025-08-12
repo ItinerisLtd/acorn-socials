@@ -1,0 +1,19 @@
+version: 2
+registries:
+  composer-repository-private-packagist:
+    type: composer-repository
+    url: https://repo.packagist.com
+    username: token
+    password: "${{secrets.COMPOSER_REPOSITORY_PRIVATE_PACKAGIST_PASSWORD}}"
+
+updates:
+  - package-ecosystem: composer
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "00:00"
+      timezone: Europe/London
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    registries:
+      - composer-repository-private-packagist

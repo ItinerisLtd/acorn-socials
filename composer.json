@@ -1,17 +1,37 @@
 {
-  "name": "vendor-name/example-package",
+  "name": "itinerisltd/acorn-socials",
   "type": "package",
-  "description": "An example package for Roots Acorn.",
+  "description": "Social account and sharable social post links management via WordPress",
   "license": "MIT",
   "authors": [
     {
-      "name": "Brandon Nifong",
-      "email": "brandon@tendency.me"
+      "name": "Itineris Limited",
+      "email": "dev@itineris.co.uk",
+      "homepage": "https://itineris.co.uk/",
+      "role": "Company"
+    },
+    {
+      "name": "Muhammet DÜLGER",
+      "email": "dulgermuhammet@gmail.com",
+      "role": "Developer"
     }
   ],
+  "homepage": "https://github.com/itinerisltd/acorn-socials/",
+  "support": {
+    "email": "dev@itineris.co.uk",
+    "issues": "https://github.com/ItinerisLtd/acorn-socials/issues",
+    "source": "https://github.com/ItinerisLtd/acorn-socials"
+  },
+  "repositories": {
+    "packagist.org": false,
+    "private-packagist": {
+      "type": "composer",
+      "url": "https://repo.packagist.com/itinerisltd/"
+    }
+  },
   "autoload": {
     "psr-4": {
-      "VendorName\\ExamplePackage\\": "src/"
+      "Itineris\\AcornSocials\\": "src/"
     }
   },
   "require": {
@@ -20,12 +40,36 @@
   "extra": {
     "acorn": {
       "providers": [
-        "VendorName\\ExamplePackage\\Providers\\AssetsServiceProvider",
-        "VendorName\\ExamplePackage\\Providers\\ExampleServiceProvider"
+        "Itineris\\AcornSocials\\Providers\\AcornSocialsServiceProvider"
       ],
       "aliases": {
-        "Example": "VendorName\\ExamplePackage\\Facades\\Example"
+        "AcornSocials": "Itineris\\AcornSocials\\Facades\\AcornSocials"
       }
     }
+  },
+  "require-dev": {
+    "itinerisltd/itineris-wp-coding-standards": "^1.0",
+    "laravel/facade-documenter": "dev-main",
+    "roots/acorn": "^4.3",
+    "roots/wordpress": "^6.7",
+    "wpackagist-plugin/kirki": "^5.1"
+  },
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "roots/wordpress-core-installer": true
+    },
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "scripts": {
+    "style:check": "phpcs",
+    "style:fix": "phpcbf",
+    "post-autoload-dump": [
+      "php -f vendor/bin/facade.php -- \"Itineris\\AcornSocials\\Facades\\AcornSocials\""
+    ]
   }
 }
