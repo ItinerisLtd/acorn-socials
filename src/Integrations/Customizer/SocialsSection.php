@@ -89,7 +89,7 @@ final class SocialsSection extends AbstractSection
                         'default' => '',
                     ],
                     'social_icon_style' => [
-                        'type' => 'select',
+                        'type' => 'radio',
                         'label' => __('Icon style', 'itineris'),
                         'choices' => [
                             'r' => __('Regular', 'itineris'),
