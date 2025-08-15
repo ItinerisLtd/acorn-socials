@@ -9,7 +9,7 @@ class SocialsManager
     private array $allowedSocialItemKeys = [
         'name',
         'key',
-        'social_icon_fullname',
+        'icon_fullname',
         'url',
     ];
 
@@ -106,10 +106,10 @@ class SocialsManager
         }
 
         return array_map(
-            function (array $social): array {
+            function (array $social): object {
                 $social = $this->setSocialPageUrl($social);
                 $social = $this->setIconFullName($social);
-                return array_intersect_key($social, array_flip($this->allowedSocialItemKeys));
+                return (object) array_intersect_key($social, array_flip($this->allowedSocialItemKeys));
             },
             $socialPages,
         );
@@ -128,10 +128,10 @@ class SocialsManager
         }
 
         return array_map(
-            function (array $social): array {
+            function (array $social): object {
                 $social = $this->setSharerUrl($social);
                 $social = $this->setIconFullName($social);
-                return array_intersect_key($social, array_flip($this->allowedSocialItemKeys));
+                return (object) array_intersect_key($social, array_flip($this->allowedSocialItemKeys));
             },
             $sharableSocials,
         );
@@ -162,7 +162,7 @@ class SocialsManager
             return $social;
         }
 
-        $social['social_icon_fullname'] = "fa{$social['social_icon_style']}-{$social['social_icon_name']}";
+        $social['icon_fullname'] = "fa{$social['social_icon_style']}-{$social['social_icon_name']}";
 
         return $social;
     }
