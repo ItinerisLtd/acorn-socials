@@ -9,8 +9,7 @@ return [
     | Socials
     |--------------------------------------------------------------------------
     |
-    | Here, you can define which socials
-    | will be used only
+    | Here, you can define which socials will be used only
     |
     */
     'socials' => [],

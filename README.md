@@ -1,6 +1,8 @@
 # Acorn Socials Package
 
-This repo can be used to scaffold an Acorn package. See the [Acorn Package Development](https://roots.io/acorn/docs/package-development/) docs for further information.
+## About
+
+Social account and sharable social links management via customizer.
 
 ## Installation
 
@@ -16,16 +18,33 @@ You can publish the config file with:
 $ wp acorn vendor:publish --provider="Itineris\AcornSocials\Providers\AcornSocialsServiceProvider"
 ```
 
-## Usage
+## Excluding/Including Socials
 
-From a Blade template:
+Edit `config/acorn-socials.php` to exclude/include Socials
 
-```blade
-@include('AcornSocials::example')
-```
+```diff
+<?php
 
-From WP-CLI:
+declare(strict_types=1);
 
-```shell
-$ wp acorn acorn-socials
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Socials
+    |--------------------------------------------------------------------------
+    |
+    | Here, you can define which socials will be used only
+    |
+    */
+-   'socials' => [],
++   'socials' => [
++    'facebook' => [
++       'social' => true/false,  // Controls accessibility on AcornSocials::getSocialPages()
++       'sharable' => true/false, // Controls accessibility on AcornSocials::getSharableSocials()
++     ],
++     'email' => [], // Empty array will make accessible on both
++   ],
+
+];
 ```
