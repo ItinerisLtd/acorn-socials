@@ -9,7 +9,7 @@ class SocialsManager
     private array $allowedSocialItemKeys = [
         'name',
         'key',
-        'icon_fullname',
+        'icon',
         'url',
     ];
 
@@ -162,7 +162,7 @@ class SocialsManager
             return $social;
         }
 
-        $social['icon_fullname'] = "fa{$social['social_icon_style']}-{$social['social_icon_name']}";
+        $social['icon'] = "fa{$social['social_icon_style']}-{$social['social_icon_name']}";
 
         return $social;
     }
