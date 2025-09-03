@@ -43,10 +43,6 @@ class AcornSocialsServiceProvider extends ServiceProvider
 
     private function bootPublishing(): void
     {
-        if (!$this->app->runningInConsole()) {
-            return;
-        }
-
         $this->publishes([
             __DIR__ . '/../../config/acorn-socials.php' => $this->app->configPath('acorn-socials.php'),
         ], 'config');

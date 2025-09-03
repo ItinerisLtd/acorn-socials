@@ -1,6 +1,6 @@
 {
   "name": "itinerisltd/acorn-socials",
-  "type": "package",
+  "type": "wordpress-plugin",
   "description": "Social account and sharable social post links management via WordPress",
   "license": "MIT",
   "authors": [
@@ -36,16 +36,6 @@
   },
   "require": {
     "php": "^8.2"
-  },
-  "extra": {
-    "acorn": {
-      "providers": [
-        "Itineris\\AcornSocials\\Providers\\AcornSocialsServiceProvider"
-      ],
-      "aliases": {
-        "AcornSocials": "Itineris\\AcornSocials\\Facades\\AcornSocials"
-      }
-    }
   },
   "require-dev": {
     "itinerisltd/itineris-wp-coding-standards": "^1.0",

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array getSocialPages()
  * @method static array getSharableSocials()
  * @method static \Itineris\AcornSocials\Managers\SocialsManager getSocialsManager()
+ * @method static bool hasSocial(string $social)
  *
  * @see \Itineris\AcornSocials\AcornSocials
  */

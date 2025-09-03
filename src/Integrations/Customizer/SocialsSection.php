@@ -62,6 +62,8 @@ final class SocialsSection extends AbstractSection
                     'social_page_url' => [
                         'type' => 'url',
                         'label' => esc_html__('Social Page Url', 'itineris'),
+                        //phpcs:ignore Generic.Files.LineLength.TooLong
+                        'description' => __('Populate this field only for social pages', 'itineris'),
                         'default' => '',
                     ],
                     'is_social_sharable' => [

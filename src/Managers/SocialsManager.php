@@ -11,6 +11,9 @@ class SocialsManager
         'key',
         'icon',
         'url',
+        'html',
+        'accessibility',
+        'meta',
     ];
 
     private array $definedSocials = [
@@ -19,72 +22,208 @@ class SocialsManager
             'key' => 'email',
             'sharer_url' => 'mailto:?subject={{ url }}&body={{ summary }}',
             'placeholders' => ['url', 'summary'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page via email',
+            ],
+            'meta' => [],
         ],
         'facebook' => [
             'name' => 'Facebook',
             'key' => 'facebook',
             'sharer_url' => 'https://www.facebook.com/sharer.php?u={{ url }}',
             'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page on facebook',
+            ],
+            'meta' => [],
         ],
         'twitter' => [
             'name' => 'X',
             'key' => 'twitter',
             'sharer_url' => 'https://twitter.com/intent/tweet?text={{ summary }}&url={{ url }}',
             'placeholders' => ['url', 'summary'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page on x',
+            ],
+            'meta' => [],
         ],
         'instagram' => [
             'name' => 'Instagram',
             'key' => 'instagram',
             'sharer_url' => '',
             'placeholders' => [],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Go to brand instagram page',
+            ],
+            'meta' => [],
         ],
         'youtube' => [
             'name' => 'YouTube',
             'key' => 'youtube',
             'sharer_url' => '',
             'placeholders' => [],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Go to brand youtube page',
+            ],
+            'meta' => [],
         ],
         'whatsapp' => [
             'name' => 'WhatsApp',
             'key' => 'whatsapp',
             'sharer_url' => 'https://wa.me/?text={{ url }}',
             'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page via whatsapp',
+            ],
+            'meta' => [],
         ],
         'bluesky' => [
             'name' => 'Bluesky',
             'key' => 'bluesky',
             'sharer_url' => 'https://bsky.app/intent/compose?text={{ url }}',
             'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page on bluesky',
+            ],
+            'meta' => [],
         ],
         'linkedin' => [
             'name' => 'LinkedIn',
             'key' => 'linkedin',
             'sharer_url' => 'https://www.linkedin.com/sharing/share-offsite/?url={{ url }}',
             'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page on linkedin',
+            ],
+            'meta' => [],
         ],
         'reddit' => [
             'name' => 'Reddit',
             'key' => 'reddit',
             'sharer_url' => 'https://www.reddit.com/submit?url={{ url }}&title={{ title }}',
             'placeholders' => ['url', 'title'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page with reddit',
+            ],
+            'meta' => [],
         ],
         'tumblr' => [
             'name' => 'Tumblr',
             'key' => 'tumblr',
             'sharer_url' => 'https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ url }}&title={{ title }}',
             'placeholders' => ['url', 'title'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Save this page on thumblr',
+            ],
+            'meta' => [],
         ],
         'pocket' => [
             'name' => 'Pocket',
             'key' => 'pocket',
             'sharer_url' => 'https://getpocket.com/save?url={{ url }}&title={{ title }}',
             'placeholders' => ['url', 'title'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Save this page on pocket',
+            ],
+            'meta' => [],
         ],
         'pinterest' => [
             'name' => 'Pinterest',
             'key' => 'pinterest',
             'sharer_url' => 'https://pinterest.com/pin/create/button/?url={{ url }}',
             'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page with pinterest',
+            ],
+            'meta' => [],
+        ],
+        'native' => [
+            'name' => 'Native Share',
+            'key' => 'native',
+            'sharer_url' => '',
+            'placeholders' => [],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Share this page',
+            ],
+            'meta' => [
+                'tooltip' => [
+                    'text' => 'Share',
+                ],
+            ],
+        ],
+        'print' => [
+            'name' => 'Print',
+            'key' => 'print',
+            'sharer_url' => '',
+            'placeholders' => [],
+            'html' => [
+                'attributes' => [
+                    'onclick' => 'print()',
+                ],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Print this page',
+            ],
+            'meta' => [],
+        ],
+        'copy_to_clipboard' => [
+            'name' => 'Clipboard To Copy',
+            'key' => 'copy_to_clipboard',
+            'sharer_url' => '{{ url }}',
+            'placeholders' => ['url'],
+            'html' => [
+                'attributes' => [
+                    'data-copy-to-clipboard-target' => 'clipboard-page-link',
+                    'data-copy-to-clipboard-content-type' => 'textContent',
+                ],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Copy this page link to clipboard',
+            ],
+            'meta' => [
+                'tooltip' => [
+                    'text' => 'Copy',
+                ],
+            ],
         ],
     ];
 
@@ -153,7 +292,23 @@ class SocialsManager
             $sharableSocials = array_intersect_key($sharableSocials, array_flip(array_keys(($allowedSharables))));
         }
 
+        $sharableSocials =  array_map(
+            fn (array $social): array => $this->setHtmlClass($social),
+            $sharableSocials,
+        );
+
         return $sharableSocials;
+    }
+
+    private function setHtmlClass(array $social): array
+    {
+        if (empty($social['key'])) {
+            return $social;
+        }
+
+        $social['html']['attributes']['class'] ??= '';
+        $social['html']['attributes']['class'] .= "acorn-social-icon acorn-social-icon-{$social['key']}";
+        return $social;
     }
 
     private function setIconFullName(array $social): array
