@@ -208,8 +208,8 @@ class SocialsManager
         'copy_to_clipboard' => [
             'name' => 'Clipboard To Copy',
             'key' => 'copy_to_clipboard',
-            'sharer_url' => '{{ url }}',
-            'placeholders' => ['url'],
+            'sharer_url' => '',
+            'placeholders' => [],
             'html' => [
                 'attributes' => [
                     'data-copy-to-clipboard-target' => 'clipboard-page-link',
