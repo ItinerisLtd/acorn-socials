@@ -314,7 +314,8 @@ class SocialsManager
 
     private function setSharableOnClicks(array $social): array
     {
-        if (empty($social['placeholders']) || !in_array('url',$social['placeholders'], true) || empty($social['url'])) {
+        //phpcs:ignore Generic.Files.LineLength.TooLong
+        if (empty($social['placeholders']) || !in_array('url', $social['placeholders'], true) || empty($social['url'])) {
             return $social;
         }
         $social['html']['attributes']['onclick'] =  "window.open('{$social['url']}', '_blank');";
