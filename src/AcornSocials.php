@@ -40,4 +40,20 @@ final class AcornSocials
     {
         return $this->socialsManager;
     }
+
+    public function hasSocial(string $social): bool
+    {
+        if (empty($social)) {
+            return false;
+        }
+
+        $sharableSocials = $this->getSharableSocials();
+        $socialPages = $this->getSocialPages();
+
+        $mergedSocials =  array_keys(array_merge(
+            $sharableSocials,
+            $socialPages,
+        ));
+        return in_array($social, $mergedSocials, true);
+    }
 }

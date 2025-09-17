@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Itineris\AcornSocials\Managers;
 
 use Illuminate\Support\Str;
+use Itineris\AcornSocials\Concerns\ActionsHead;
 use Itineris\AcornSocials\Concerns\ActionsInit;
 use Itineris\AcornSocials\Integrations\Customizer;
 
 class HookManager
 {
     use ActionsInit;
+    use ActionsHead;
 
     public function registerHooks(): void
     {
@@ -22,6 +24,8 @@ class HookManager
         if (Customizer::shouldRegister()) {
             add_action('init', $this->action('integrate_customizer'));
         }
+
+        add_action('wp_head', $this->action('print_clipboard_page_link'));
     }
 
     public function action(string $action): array

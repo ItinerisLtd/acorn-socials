@@ -1,0 +1,28 @@
+{
+  "_dom-ready-DP8MJ1km.js": {
+    "file": "assets/dom-ready-DP8MJ1km.js",
+    "name": "dom-ready"
+  },
+  "editor.deps.json": {
+    "file": "assets/editor.deps-BqrDAOEV.json",
+    "src": "editor.deps.json"
+  },
+  "resources/js/copy-to-clipboard.js": {
+    "file": "assets/copy-to-clipboard-DV4b2PCC.js",
+    "name": "copy-to-clipboard",
+    "src": "resources/js/copy-to-clipboard.js",
+    "isEntry": true,
+    "imports": [
+      "_dom-ready-DP8MJ1km.js"
+    ]
+  },
+  "resources/js/native.js": {
+    "file": "assets/native-CtKoBLpH.js",
+    "name": "native",
+    "src": "resources/js/native.js",
+    "isEntry": true,
+    "imports": [
+      "_dom-ready-DP8MJ1km.js"
+    ]
+  }
+}

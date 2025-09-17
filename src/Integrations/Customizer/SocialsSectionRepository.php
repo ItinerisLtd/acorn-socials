@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Itineris\AcornSocials\Integrations\Customizer;
 
 use Itineris\AcornSocials\Concretes\AbstractSectionRepository;
+use Itineris\AcornSocials\Facades\AcornSocials;
 
 class SocialsSectionRepository extends AbstractSectionRepository
 {
@@ -25,6 +26,12 @@ class SocialsSectionRepository extends AbstractSectionRepository
         foreach ($socials as $social) {
             $data[$social['social_name']] = $social;
         }
+
+        // Prevents to pops up error if key changes happens in future.
+        $data = array_intersect_key(
+            $data,
+            AcornSocials::getSocialsManager()->getDefinedSocials(),
+        );
 
         return $data;
     }
