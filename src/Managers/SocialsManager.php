@@ -208,8 +208,8 @@ class SocialsManager
         'copy_to_clipboard' => [
             'name' => 'Clipboard To Copy',
             'key' => 'copy_to_clipboard',
-            'sharer_url' => '{{ url }}',
-            'placeholders' => ['url'],
+            'sharer_url' => '',
+            'placeholders' => [],
             'html' => [
                 'attributes' => [
                     'data-copy-to-clipboard-target' => 'clipboard-page-link',
@@ -269,6 +269,7 @@ class SocialsManager
         return array_map(
             function (array $social): object {
                 $social = $this->setSharerUrl($social);
+                $social = $this->setSharableOnClicks($social);
                 $social = $this->setIconFullName($social);
                 return (object) array_intersect_key($social, array_flip($this->allowedSocialItemKeys));
             },
@@ -308,6 +309,16 @@ class SocialsManager
 
         $social['html']['attributes']['class'] ??= '';
         $social['html']['attributes']['class'] .= "acorn-social-icon acorn-social-icon-{$social['key']}";
+        return $social;
+    }
+
+    private function setSharableOnClicks(array $social): array
+    {
+        if (empty($social['placeholders']) || !in_array('url',$social['placeholders'], true) || empty($social['url'])) {
+            return $social;
+        }
+        $social['html']['attributes']['onclick'] =  "window.open('{$social['url']}', '_blank');";
+
         return $social;
     }
 
