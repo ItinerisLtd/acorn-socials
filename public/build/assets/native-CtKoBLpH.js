@@ -1,0 +1,1 @@
+import{d as o}from"./dom-ready-DP8MJ1km.js";const e=()=>{document.addEventListener("click",function(t){if(t.target.closest(".acorn-social-icon-native")){if(t.preventDefault(),!navigator.share){console.log("Your browser doesn't support navigator.share().");return}navigator.share({title:document.title,url:window.location.href}).catch(console.error)}},!0)};o(e);
