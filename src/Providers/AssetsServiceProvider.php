@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Itineris\AcornSocials\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Itineris\AcornSocials\Assets\ManifestHandler;
 use Itineris\AcornSocials\Facades\AcornSocials;
 
 use function Roots\asset;
@@ -19,6 +20,7 @@ class AssetsServiceProvider extends ServiceProvider
         app('assets')->manifest(
             'acorn-socials',
             [
+                'handler' => (new ManifestHandler())(),
                 'path' => ITINERIS_ACORN_SOCIALS_PUBLIC_DIR . '/build',
                 'url' => ITINERIS_ACORN_SOCIALS_PUBLIC_URI . '/build',
                 'assets' => ITINERIS_ACORN_SOCIALS_PUBLIC_DIR . '/build/manifest.json',
