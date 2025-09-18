@@ -32,6 +32,7 @@ class ManifestBeforeVite extends Manifest
             throw new ManifestNotFoundException("The asset manifest [{$jsonManifest}] cannot be found.");
         }
 
+        //phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents, Generic.PHP.ForbiddenFunctions.Found
         return json_decode(file_get_contents($jsonManifest), true) ?? [];
     }
 }
