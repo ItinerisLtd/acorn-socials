@@ -41,7 +41,7 @@
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
     "laravel/facade-documenter": "dev-main",
     "roots/acorn": "^4.3",
-    "roots/wordpress": "^6.7",
+    "roots/wordpress": "^6.8",
     "wpackagist-plugin/kirki": "^5.1"
   },
   "prefer-stable": true,
