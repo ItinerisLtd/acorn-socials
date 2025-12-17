@@ -14,8 +14,6 @@ class AcornSocialsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->registerConfig();
-
         $this->app->singleton(
             'AcornSocials',
             fn() => new AcornSocials(
@@ -25,26 +23,19 @@ class AcornSocialsServiceProvider extends ServiceProvider
                 new SocialsSectionRepository(),
             ),
         );
-    }
 
-    public function boot(): void
-    {
-        $this->bootPublishing();
-        $this->app->make('AcornSocials');
-    }
-
-    private function registerConfig(): void
-    {
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/acorn-socials.php',
             'acorn-socials',
         );
     }
 
-    private function bootPublishing(): void
+    public function boot(): void
     {
         $this->publishes([
             __DIR__ . '/../../config/acorn-socials.php' => $this->app->configPath('acorn-socials.php'),
         ], 'config');
+
+        $this->app->make('AcornSocials');
     }
 }
