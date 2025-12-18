@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Plugin Name:       Acorn Socials
  * Description:       Social account and sharable social post links management via WordPress
- * Version:           0.3.0
+ * Version:           0.3.3
  * Requires at least: 6.8
  * Requires PHP:      8.2
  * Author:            Itineris Ltd.
