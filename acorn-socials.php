@@ -24,7 +24,7 @@ define('ITINERIS_ACORN_SOCIALS_PUBLIC_DIR', ITINERIS_ACORN_SOCIALS_PLUGIN_DIR . 
 define('ITINERIS_ACORN_SOCIALS_PUBLIC_URI', plugin_dir_url(__FILE__) . 'public');
 
 add_action('after_setup_theme', function (): void {
-    if (! method_exists('\Roots\Acorn\Application', 'getInstance')) {
+    if (! function_exists('Roots\bootloader')) {
         wp_die(
             __('You need to install Acorn to use this site.', 'itineris'),
             '',
@@ -35,7 +35,8 @@ add_action('after_setup_theme', function (): void {
         );
     }
 
-    $app = \Roots\Acorn\Application::getInstance();
+    $app = Roots\bootloader()->getApplication();
+
     $app->register(Itineris\AcornSocials\Providers\AcornSocialsServiceProvider::class);
     $app->register(Itineris\AcornSocials\Providers\AssetsServiceProvider::class);
     $app->alias('AcornSocials', Itineris\AcornSocials\Facades\AcornSocials::class);

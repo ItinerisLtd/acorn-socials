@@ -12,22 +12,22 @@ use function Roots\asset;
 
 class AssetsServiceProvider extends ServiceProvider
 {
-     /**
-      * Register assets services.
-      */
+    /**
+     * Register assets services.
+     */
     public function register(): void
     {
-        app('assets')->manifest(
-            'acorn-socials',
-            [
+        add_action('wp_enqueue_scripts', function (): void {
+            app('assets')->manifest(
+                'acorn-socials',
+                [
                 'handler' => (new ManifestHandler())(),
                 'path' => ITINERIS_ACORN_SOCIALS_PUBLIC_DIR . '/build',
                 'url' => ITINERIS_ACORN_SOCIALS_PUBLIC_URI . '/build',
                 'assets' => ITINERIS_ACORN_SOCIALS_PUBLIC_DIR . '/build/manifest.json',
-            ],
-        );
+                ],
+            );
 
-        add_action('wp_enqueue_scripts', function (): void {
             if (AcornSocials::hasSocial('native')) {
                 wp_enqueue_script_module(
                     'acorn-socials/native',
