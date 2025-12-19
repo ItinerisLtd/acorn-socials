@@ -41,8 +41,11 @@
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
     "laravel/facade-documenter": "dev-main",
     "roots/acorn": "^4.3",
-    "roots/wordpress": "^6.8",
+    "roots/wordpress": "^6.9",
     "wpackagist-plugin/kirki": "^5.1"
+  },
+  "conflict": {
+    "roots/acorn": ">=5.0"
   },
   "prefer-stable": true,
   "config": {
@@ -54,6 +57,17 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "sort-packages": true
+  },
+  "extra": {
+    "acorn": {
+      "providers": [
+        "Itineris\\AcornSocials\\Providers\\AcornSocialsServiceProvider",
+        "Itineris\\AcornSocials\\Providers\\AssetsServiceProvider"
+      ],
+      "aliases": {
+        "AcornSocials": "Itineris\\AcornSocials\\Facades\\AcornSocials"
+      }
+    }
   },
   "scripts": {
     "style:check": "phpcs",
