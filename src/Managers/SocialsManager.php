@@ -225,6 +225,19 @@ class SocialsManager
                 ],
             ],
         ],
+        'wechat' => [
+            'name' => 'WeChat',
+            'key' => 'wechat',
+            'sharer_url' => '',
+            'placeholders' => [],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Go to WeChat',
+            ],
+            'meta' => [],
+        ],
     ];
 
     public function getDefinedSocials(): array
