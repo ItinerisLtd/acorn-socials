@@ -238,6 +238,19 @@ class SocialsManager
             ],
             'meta' => [],
         ],
+        'tiktok' => [
+            'name' => 'TikTok',
+            'key' => 'tiktok',
+            'sharer_url' => '',
+            'placeholders' => [],
+            'html' => [
+                'attributes' => [],
+            ],
+            'accessibility' => [
+                'sr_text' => 'Go to TikTok',
+            ],
+            'meta' => [],
+        ],
     ];
 
     public function getDefinedSocials(): array
