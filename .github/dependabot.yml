@@ -5,7 +5,6 @@ registries:
     url: https://repo.packagist.com
     username: token
     password: "${{secrets.COMPOSER_REPOSITORY_PRIVATE_PACKAGIST_PASSWORD}}"
-
 updates:
   - package-ecosystem: composer
     directory: "/"
@@ -17,3 +16,5 @@ updates:
     versioning-strategy: increase
     registries:
       - composer-repository-private-packagist
+    cooldown:
+      default-days: 21
