@@ -6,5 +6,11 @@ namespace Itineris\AcornSocials\Contracts;
 
 interface SectionRepositoryInterface
 {
-    public function setData(): mixed;
+    public function setData(): array;
+
+    public function getData(): mixed;
+
+    public function getSharableSocials(): array;
+
+    public function getSocialPages(): array;
 }

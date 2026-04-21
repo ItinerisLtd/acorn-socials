@@ -20,4 +20,30 @@ abstract class AbstractSectionRepository implements SectionRepositoryInterface
 
         return $this->data;
     }
+
+    public function getSharableSocials(): array
+    {
+        $socials = $this->getData();
+        if (empty($socials)) {
+            return [];
+        }
+
+        return array_filter(
+            $socials,
+            fn(array $social): bool => !empty($social['is_social_sharable']),
+        );
+    }
+
+    public function getSocialPages(): array
+    {
+        $socials = $this->getData();
+        if (empty($socials)) {
+            return [];
+        }
+
+        return array_filter(
+            $socials,
+            fn(array $social): bool => !empty($social['social_page_url']),
+        );
+    }
 }

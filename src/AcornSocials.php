@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\AcornSocials;
 
-use Itineris\AcornSocials\Integrations\Customizer\SocialsSectionRepository;
+use Itineris\AcornSocials\Contracts\SectionRepositoryInterface;
 use Itineris\AcornSocials\Managers\HookManager;
 use Itineris\AcornSocials\Managers\SocialsManager;
 use Roots\Acorn\Application;
@@ -17,11 +17,13 @@ final class AcornSocials
 
     public function __construct(
         protected Application $app,
-        protected HookManager $hookManager,
+        protected ?HookManager $hookManager,
         protected SocialsManager $socialsManager,
-        protected SocialsSectionRepository $socialsSectionRepository
+        protected SectionRepositoryInterface $socialsSectionRepository
     ) {
-        $this->hookManager->registerHooks();
+        if ($this->hookManager instanceof HookManager) {
+            $this->hookManager->registerHooks();
+        }
     }
 
     public function getSocialPages(): array
