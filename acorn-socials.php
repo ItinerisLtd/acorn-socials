@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Description:       Social account and sharable social post links management via WordPress
  * Version:           0.6.0
  * Requires at least: 6.8
- * Requires PHP:      8.2
+ * Requires PHP:      8.1
  * Author:            Itineris Ltd.
  * Text Domain:       itineris
  */
