@@ -12,6 +12,11 @@ declare(strict_types=1);
  * Text Domain:       itineris
  */
 
+use Itineris\AcornSocials\Facades\AcornSocials as AcornSocialsFacade;
+use Itineris\AcornSocials\Providers\AcornSocialsServiceProvider;
+use Itineris\AcornSocials\Providers\AssetsServiceProvider;
+use Itineris\AcornSocials\Support\AcornCompatibility;
+
 // Composer is only used for local development and testing.
 if (file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     require_once $composer;
@@ -24,20 +29,14 @@ define('ITINERIS_ACORN_SOCIALS_PUBLIC_DIR', ITINERIS_ACORN_SOCIALS_PLUGIN_DIR . 
 define('ITINERIS_ACORN_SOCIALS_PUBLIC_URI', plugin_dir_url(__FILE__) . 'public');
 
 add_action('after_setup_theme', function (): void {
-    if (! function_exists('Roots\bootloader')) {
-        wp_die(
-            __('You need to install Acorn to use this site.', 'itineris'),
-            '',
-            [
-            'link_url' => 'https://roots.io/acorn/docs/installation/',
-            'link_text' => __('Acorn Docs: Installation', 'itineris'),
-            ],
-        );
-    }
+    $app = AcornCompatibility::resolveApplication([
+        AcornSocialsServiceProvider::class,
+        AssetsServiceProvider::class,
+    ]);
 
-    $app = Roots\bootloader()->getApplication();
-
-    $app->register(Itineris\AcornSocials\Providers\AcornSocialsServiceProvider::class);
-    $app->register(Itineris\AcornSocials\Providers\AssetsServiceProvider::class);
-    $app->alias('AcornSocials', Itineris\AcornSocials\Facades\AcornSocials::class);
+    AcornCompatibility::registerContainerAliasIfNeeded(
+        $app,
+        'AcornSocials',
+        AcornSocialsFacade::class,
+    );
 }, 20);
