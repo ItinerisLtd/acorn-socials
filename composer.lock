@@ -155,15 +155,15 @@
         },
         {
             "name": "wpackagist-plugin/kirki",
-            "version": "6.2.0",
+            "version": "6.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/kirki/",
-                "reference": "tags/6.2.0"
+                "reference": "tags/6.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/kirki.6.2.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/kirki.6.2.1.zip",
                 "mirrors": [
                     {
                         "url": "https://repo.packagist.com/itinerisltd/dists/%package%/%version%/r%reference%.%type%",
