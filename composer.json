@@ -36,7 +36,7 @@
   },
   "require": {
     "php": "^8.4",
-    "wpackagist-plugin/kirki": "^6.2"
+    "wpackagist-plugin/kirki": "^6.3"
   },
   "require-dev": {
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
@@ -61,5 +61,8 @@
     "post-autoload-dump": [
       "php -f vendor/bin/facade.php -- \"Itineris\\AcornSocials\\Facades\\AcornSocials\""
     ]
+  },
+  "conflict": {
+    "wpackagist-plugin/kirki": ">6.3.0"
   }
 }
