@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86da0f9e060e04939c668c802dca45c1",
+    "content-hash": "33f911e698c1ef73fd2d2282d72b9781",
     "packages": [
         {
             "name": "composer/installers",
@@ -155,15 +155,15 @@
         },
         {
             "name": "wpackagist-plugin/kirki",
-            "version": "6.2.2",
+            "version": "6.3.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/kirki/",
-                "reference": "tags/6.2.2"
+                "reference": "tags/6.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/kirki.6.2.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/kirki.6.3.0.zip",
                 "mirrors": [
                     {
                         "url": "https://repo.packagist.com/itinerisltd/dists/%package%/%version%/r%reference%.%type%",
