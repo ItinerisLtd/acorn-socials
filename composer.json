@@ -36,13 +36,13 @@
   },
   "require": {
     "php": "^8.4",
+    "roots/wordpress": "^6.9",
     "wpackagist-plugin/kirki": "^6.3"
   },
   "require-dev": {
     "itinerisltd/itineris-wp-coding-standards": "^1.0",
     "laravel/facade-documenter": "dev-main",
-    "roots/acorn": "^4.3 || ^5.0 || ^6.0",
-    "roots/wordpress": "^6.8"
+    "roots/acorn": "^4.3 || ^5.0 || ^6.0"
   },
   "prefer-stable": true,
   "config": {
