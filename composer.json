@@ -36,6 +36,7 @@
   },
   "require": {
     "php": "^8.4",
+    "cweagans/composer-patches": "^2.0",
     "roots/wordpress": "^6.9",
     "wpackagist-plugin/kirki": "^6.3"
   },
@@ -49,7 +50,8 @@
     "allow-plugins": {
       "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
-      "roots/wordpress-core-installer": true
+      "roots/wordpress-core-installer": true,
+      "cweagans/composer-patches": true
     },
     "optimize-autoloader": true,
     "preferred-install": "dist",
@@ -62,7 +64,12 @@
       "php -f vendor/bin/facade.php -- \"Itineris\\AcornSocials\\Facades\\AcornSocials\""
     ]
   },
-  "conflict": {
-    "wpackagist-plugin/kirki": ">6.3.0"
+  "conflict": {},
+  "extra": {
+    "patches": {
+      "wpackagist-plugin/kirki": {
+        "Fix fatal collision between bundled psr/log and Acorn's Monolog": "patches/kirki-strip-bundled-psr-log-autoload-entry.patch"
+      }
+    }
   }
 }

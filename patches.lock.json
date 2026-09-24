@@ -1,0 +1,17 @@
+{
+    "_hash": "c5210be2cb72ac6b89e6c047fbfdf62e4d8830916a05fb3162956749685abda9",
+    "patches": {
+        "wpackagist-plugin/kirki": [
+            {
+                "package": "wpackagist-plugin/kirki",
+                "description": "Fix fatal collision between bundled psr/log and Acorn's Monolog",
+                "url": "patches/kirki-strip-bundled-psr-log-autoload-entry.patch",
+                "sha256": "f7363316b6856bad83ed50bd8d61836120e8504f3690674b4323bc0b575b4ed1",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}
