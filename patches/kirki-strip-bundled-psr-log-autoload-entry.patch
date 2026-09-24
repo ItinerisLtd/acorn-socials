@@ -1,0 +1,43 @@
+--- a/kirki.php
++++ b/kirki.php
+@@ -30,6 +30,9 @@
+ }
+
+ require_once plugin_dir_path( __FILE__ ) . 'config.php';
++
++interface_exists( \Psr\Log\LoggerInterface::class );
++
+ require_once __DIR__ . '/vendor/autoload.php';
+ require_once __DIR__ . '/customizer/class-customizer.php';
+ require_once __DIR__ . '/includes/KirkiBase.php';
+--- a/vendor/composer/autoload_psr4.php
++++ b/vendor/composer/autoload_psr4.php
+@@ -10,7 +10,6 @@
+     'Symfony\\Polyfill\\Php82\\' => array($vendorDir . '/symfony/polyfill-php82'),
+     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
+     'Pusher\\' => array($vendorDir . '/pusher/pusher-php-server/src'),
+-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
+     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
+     'Kirki\\Util\\' => array($baseDir . '/customizer/packages/utils/src', $baseDir . '/customizer/packages/utils/googlefonts/src', $baseDir . '/customizer/packages/utils/l10n/src', $baseDir . '/customizer/packages/utils/url-getter/src'),
+--- a/vendor/composer/autoload_static.php
++++ b/vendor/composer/autoload_static.php
+@@ -27,7 +27,6 @@
+         'P' =>
+         array (
+             'Pusher\\' => 7,
+-            'Psr\\Log\\' => 8,
+             'Psr\\Http\\Message\\' => 17,
+             'Psr\\Http\\Client\\' => 16,
+         ),
+@@ -75,10 +74,6 @@
+         array (
+             0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+         ),
+-        'Psr\\Log\\' =>
+-        array (
+-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+-        ),
+         'Psr\\Http\\Message\\' =>
+         array (
+             0 => __DIR__ . '/..' . '/psr/http-factory/src',
